@@ -59,6 +59,7 @@ def register(request):
             email_get = r_form.cleaned_data['email']
             phone_get = r_form.cleaned_data['phone']
 
+            # noinspection PyBroadException
             try:
                 if pw1_get == pw2_get:
                     new_user = User.objects.create_user(username=name_get, password=pw1_get, email=email_get)
