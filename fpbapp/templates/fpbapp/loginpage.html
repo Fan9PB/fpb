@@ -1,0 +1,40 @@
+{% extends 'fpbapp/index.html' %}
+
+{% block title %}登录{% endblock %}
+
+{% block  content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div style="height: 100px;"></div>
+                <div class="card shadow">
+                    <div class="card-header text-center bg-dark">
+                        <h3 class="text-light card-title">登录</h3>
+                    </div>
+                    <div class="card-body">
+                        {% if message %}
+                            <div class="alert alert-danger" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endif %}
+                        <form action="{% url 'login' %}" method="post">
+                            {% csrf_token %}
+                            <label for="#user">用户名</label>
+                            <input type="text" id="user" class="form-control" name="username" placeholder="username" required>
+                            <label for="#user">密码</label>
+                            <input type="password" id="pwd" class="form-control" name="password" placeholder="password" required>
+                            <div style="height: 20px;"></div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success btn-lg">提交</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+
+{% endblock %}
