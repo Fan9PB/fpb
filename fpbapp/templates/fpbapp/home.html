@@ -144,7 +144,7 @@
 {% block javascript %}
 
     <script>
-        {% for j in last_five %}
+        {% for j in last_ten %}
             $(document).ready(function (){
                 $('#{{ j.id }}-del').click(function (){
                     var r = confirm("你确定要删除这个订单吗？")
@@ -171,7 +171,7 @@
                     }
                 })
             })
-        {% endfor %} <!-- 弹窗 -->
+        {% endfor %}
     </script>
 
 {% endblock %}
